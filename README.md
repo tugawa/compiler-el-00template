@@ -8,9 +8,37 @@
 x = 3; y = 5; x + 2 * y
 ```
 
+## リポジトリの更新のしかた
+```
+> git remote add template https://github.com/kut-info-compiler/compiler-el-00template.git    <--- 最初だけ
+> git fetch template
+> git merge template/master
+```
+
 ## 文法と構文木
 
 [parser.mly](parser.mly)を参照
+
+## 意味
+
+```
+E[[ (VarDef var val prog) ]] rho = E[[ prog ]] rho'
+  ただし，
+     rho'(x) = var     (x == varのとき)
+     rho'(x) = rho(x)  (そうでないとき)
+
+E[[ (+ lhs rhs) ]] rho = E[[ lhs ]] rho + E[[ rhs ]] rho
+
+E[[ (- lhs rhs) ]] rho = E[[ lhs ]] rho - E[[ rhs ]] rho
+
+E[[ (* lhs rhs) ]] rho = E[[ lhs ]] rho * E[[ rhs ]] rho
+
+E[[ (/ lhs rhs) ]] rho = E[[ lhs ]] rho / E[[ rhs ]] rho
+
+E[[ (VarRef var) ]] rho = rho(var)
+
+E[[ (Num n) ]] rho = n
+```
 
 ## [課題] 練習1 構文木をS式にして表示
 
