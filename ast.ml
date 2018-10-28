@@ -17,4 +17,8 @@ let rec sexp_of_expr expr =
   raise Not_implemented
 
 let rec sexp_of_program prog =
-  raise Not_implemented
+  match prog with
+  | VarDef {var = var; value = value; next = rest} ->
+     "(var " ^ var ^ " " ^ (string_of_int value) ^ "\n" ^ (sexp_of_program rest) ^ ")"
+  | Expr expr ->
+     sexp_of_expr expr
