@@ -4,7 +4,7 @@
 
 %token<int> NUM
 %token<string> ID
-%token PLUS MINUS TIMES DIV LP RP EOF LS RS SEMI EQ
+%token PLUS MINUS TIMES DIV LP RP EOF LS RS SEMI EQ INT
 
 %type <Ast.expr> expr term factor
 %type <Ast.program> program
@@ -13,7 +13,7 @@
 
 %%
 program:
-  | ID EQ NUM SEMI program  { VarDef {var = $1; value = $3; next = $5} }
+  | INT ID EQ NUM SEMI program  { VarDef {var = $2; value = $4; next = $6} }
   | expr                { Expr $1 }
   ;
 

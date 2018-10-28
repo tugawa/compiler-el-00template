@@ -10,6 +10,7 @@ let id = letter(digit|letter)*
 
 rule get_token = parse
        | digit+      { NUM (int_of_string (Lexing.lexeme lexbuf)) }
+       | "int"       { INT }
        | id          { ID  (Lexing.lexeme lexbuf) }
        | '+'         { PLUS }
        | '-'         { MINUS }

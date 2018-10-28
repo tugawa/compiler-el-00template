@@ -1,6 +1,6 @@
 PRINTAST_FILES = lexer.cmo parser.cmo ast.cmo printast.cmo
-INTERP_FILES =  lexer.cmo parser.cmo ast.cmo interp.cmo
-COMP_FILES =  lexer.cmo parser.cmo ast.cmo comp.cmo
+INTERP_FILES =  lexer.cmo parser.cmo ast.cmo env.cmo interp.cmo
+COMP_FILES =  lexer.cmo parser.cmo ast.cmo env.cmo comp.cmo
 
 all: printast interp comp
 
@@ -19,6 +19,8 @@ lexer.ml: lexer.mll
 parser.cmo: parser.cmi
 parser.cmi: ast.cmo
 lexer.cmo: parser.cmo
+interp.cmo: ast.cmo env.cmo
+comp.cmo: ast.cmo env.cmo
 
 printast: $(PRINTAST_FILES)
 	ocamlc -o $@ $(PRINTAST_FILES)
@@ -31,4 +33,4 @@ comp: $(COMP_FILES)
 
 
 clean:
-	rm -f *.cmi *.cmo parser.ml parser.mli lexer.ml printast interp comp *~ 
+	rm -f *.cmi *.cmo parser.ml parser.mli lexer.ml printast interp comp *~
