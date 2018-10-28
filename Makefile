@@ -31,4 +31,4 @@ comp: $(COMP_FILES)
 
 
 clean:
-	rm -f *.cmi *.cmo parser.ml parser.mli lexer.ml
+	rm -f *.cmi *.cmo parser.ml parser.mli lexer.ml printast interp comp *~ #*
