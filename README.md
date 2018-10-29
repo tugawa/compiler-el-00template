@@ -59,7 +59,7 @@ E[[ (Num n) ]] rho = n
 
 ### 実行例
 
-入力: x = 3; y = 5; x + 2 * y
+入力: int x = 3; int y = 5; x + 2 * y
 ```
 (VarDef x 3
 (VarDef y 5
