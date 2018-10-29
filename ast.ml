@@ -19,6 +19,6 @@ let rec sexp_of_expr expr =
 let rec sexp_of_program prog =
   match prog with
   | VarDef {varname = var; varvalue = value; rest = rest} ->
-     "(var " ^ var ^ " " ^ (string_of_int value) ^ "\n" ^ (sexp_of_program rest) ^ ")"
+     "(VarDef " ^ var ^ " " ^ (string_of_int value) ^ "\n" ^ (sexp_of_program rest) ^ ")"
   | Expr expr ->
      sexp_of_expr expr
