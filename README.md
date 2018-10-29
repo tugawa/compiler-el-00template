@@ -76,7 +76,7 @@ E[[ (Num n) ]] rho = n
 
 ### 実行例
 
-入力: x = 3; y = 5; x + 2 * y
+入力: int x = 3; int y = 5; x + 2 * y
 ```
 13
 ```
@@ -91,7 +91,7 @@ E[[ (Num n) ]] rho = n
 
 ### 実行例
 
-入力: x = 3; y = 5; x + 2 * y
+入力: int x = 3; int y = 5; x + 2 * y
 ```
 .text
 	.global _main
@@ -119,7 +119,7 @@ _main:
 
 ### 使い方
 ```
-$ echo "x = 3; y = 5; x + 2 * y" | ./comp > a.s   <--- コンパイル
+$ echo "int x = 3; int y = 5; x + 2 * y" | ./comp > a.s   <--- コンパイル
 $ gcc a.s    <--- アセンブル
 $ ./a.out    <--- 実行
 $ echo $?    <--- 実行結果（終了コード）の表示
