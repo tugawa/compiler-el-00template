@@ -1,6 +1,6 @@
 exception Not_implemented
 
-type vardef_body = {var: string; value: int; next: program}
+type vardef_body = {varname: string; varvalue: int; rest: program}
  and program =
    | VarDef of vardef_body
    | Expr of expr
@@ -18,7 +18,7 @@ let rec sexp_of_expr expr =
 
 let rec sexp_of_program prog =
   match prog with
-  | VarDef {var = var; value = value; next = rest} ->
+  | VarDef {varname = var; varvalue = value; rest = rest} ->
      "(var " ^ var ^ " " ^ (string_of_int value) ^ "\n" ^ (sexp_of_program rest) ^ ")"
   | Expr expr ->
      sexp_of_expr expr

@@ -13,7 +13,7 @@
 
 %%
 program:
-  | INT ID EQ NUM SEMI program  { VarDef {var = $2; value = $4; next = $6} }
+  | INT ID EQ NUM SEMI program  { VarDef {varname = $2; varvalue = $4; rest = $6} }
   | expr                { Expr $1 }
   ;
 

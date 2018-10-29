@@ -8,7 +8,7 @@ let rec eval_expr(expr, env) =
 
 let rec eval_program(prog, env) =
   match prog with
-  | VarDef {var = var; value = value; next = rest} ->
+  | VarDef {varname = var; varvalue = value; rest = rest} ->
      let env = update_env(env, var, value) in
      eval_program(rest, env)
   | Expr expr ->

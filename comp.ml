@@ -11,7 +11,7 @@ let rec compile_expr expr env =
 
 let rec compile_program(prog, env, offset) =
   match prog with
-  | VarDef {var = var; value = value; next = rest} ->
+  | VarDef {varname = var; varvalue = value; rest = rest} ->
      let env = update_env(env, var, offset) in
      insn("pushq", "$" ^ (string_of_int value)) ^
        (compile_program(rest, env, (offset - 8)))
