@@ -24,7 +24,7 @@ int x = 3; int y = 5; x + 2 * y
 ```
 E[[ (VarDef var val prog) ]] rho = E[[ prog ]] rho'
   ただし，
-     rho'(x) = var     (x == varのとき)
+     rho'(x) = val     (x == varのとき)
      rho'(x) = rho(x)  (そうでないとき)
 
 E[[ (+ lhs rhs) ]] rho = E[[ lhs ]] rho + E[[ rhs ]] rho
