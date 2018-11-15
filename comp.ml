@@ -24,7 +24,9 @@ let _ =
   let code = compile_program(ast, EmptyEnv, -8) in
   print_string ".text\n";
   print_string "\t.global _main\n";
+  print_string "\t.global main\n";
   print_string "_main:\n";
+  print_string "main:\n";
   print_string (insn("pushq", "%rbp"));
   print_string (insn("movq", "%rsp, %rbp"));
   print_string (code ^ "\n");
