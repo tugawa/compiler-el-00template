@@ -1,3 +1,7 @@
+# スライド
+
+[PDF](pdf/slide06.pdf)
+
 # 次の課題のURL
 
 [https://classroom.github.com/a/dQT_H9fI]
